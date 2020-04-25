@@ -42,8 +42,7 @@ function MapExplorer({
   );
   const [testObj, setTestObj] = useState({});
   const [currentMap, setCurrentMap] = useState(mapMeta);
-  const [mapOption, setMapOption] = useLocalStorage('mapOption', 'active');
-
+  const [mapOption, setMapOption] = useLocalStorage('mapOption', 'active');  
   const [statistic, currentMapData] = useMemo(() => {
     const dataTypes = ['confirmed', 'active', 'recovered', 'deceased'];
     const statistic = dataTypes.reduce((acc, dtype) => {

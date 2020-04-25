@@ -3,7 +3,8 @@ export const MAP_TYPES = {
   STATE: 'state',
 };
 
-export const MAPS_DIR = '/maps';
+const PUBLIC_URL = process.env.PUBLIC_URL;
+export const MAPS_DIR = `${PUBLIC_URL}/maps`;
 
 export const MAP_META = {
   India: {

@@ -8,11 +8,11 @@ function Footer(props) {
 
       <div className="link">
         <a
-          href="https://github.com/covid19india"
+          href="https://github.com/covid19cg"
           target="_blank"
           rel="noopener noreferrer"
         >
-          covid19india
+          covid19cg
         </a>
       </div>
 

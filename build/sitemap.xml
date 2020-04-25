@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>https://www.covid19india.org/</loc>
+      <loc>https://www.covid19cg.org/</loc>
    </url>
    <url>
-      <loc>https://www.covid19india.org/demographics/</loc>
+      <loc>https://www.covid19cg.org/demographics/</loc>
    </url>
    <url>
-      <loc>https://www.covid19india.org/deepdive/</loc>
+      <loc>https://www.covid19cg.org/deepdive/</loc>
    </url>
    <url>
-      <loc>https://www.covid19india.org/faq/</loc>
+      <loc>https://www.covid19cg.org/faq/</loc>
    </url>
    <url>
-      <loc>https://www.covid19india.org/essentials/</loc>
+      <loc>https://www.covid19cg.org/essentials/</loc>
    </url>
 </urlset>

@@ -43,7 +43,7 @@
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|md)\"",
     "scss-lint": "sass-lint 'src/**/*.scss' -v -f table --max-warnings 0",
     "scss-lint:fix": "sass-lint-auto-fix 'src/**/*.scss' -d -h -c '.sass-lint-auto-fix.yml'",
-    "deploy-gh-pages": "git push origin `git subtree split --prefix build master`:gh-pages --force"
+    "deploy-gh-pages": "git push origin 'git subtree split --prefix build master':gh-pages --force"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -17,7 +17,7 @@ function Footer(props) {
       </div>
 
       <a
-        href="https://github.com/covid19india/covid19india-react"
+        href="https://github.com/covid19cg/covid19cg"
         className="button github"
         target="_blank"
         rel="noopener noreferrer"
@@ -26,7 +26,7 @@ function Footer(props) {
         <span>Open Sourced on GitHub</span>
       </a>
 
-      <a
+      {/* <a
         className="button excel"
         href="http://patientdb.covid19india.org"
         target="_blank"
@@ -34,10 +34,10 @@ function Footer(props) {
       >
         <Icon.Database />
         <span>Crowdsourced Patient Database&nbsp;</span>
-      </a>
+      </a> */}
 
       <a
-        href="https://twitter.com/covid19indiaorg"
+        href="https://twitter.com/CGCoronaUpdate"
         target="_blank"
         rel="noopener noreferrer"
         className="button twitter"
@@ -47,7 +47,7 @@ function Footer(props) {
         <span>View updates on Twitter</span>
       </a>
 
-      <a
+      {/* <a
         href="https://bit.ly/covid19crowd"
         className="button telegram"
         target="_blank"
@@ -55,7 +55,7 @@ function Footer(props) {
       >
         <Icon.MessageCircle />
         <span>Join Telegram to Collaborate!</span>
-      </a>
+      </a> */}
     </footer>
   );
 }

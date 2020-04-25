@@ -391,12 +391,12 @@ function State(props) {
           )}
         </div>
 
-        <div className="state-left">
+        {/* <div className="state-left">
           <div className="Clusters fadeInUp" style={{animationDelay: '0.8s'}}>
             <h1>Network of Transmission</h1>
             <Clusters stateCode={'CT'} />
           </div>
-        </div>
+        </div> */}
 
         <div className="state-right"></div>
       </div>

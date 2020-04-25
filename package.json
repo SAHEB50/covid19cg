@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env PUBLIC_URL=/covid19 react-scripts build && cp build/index.html build/404.html",
+    "build": "cross-env PUBLIC_URL=/covid19cg react-scripts build && cp build/index.html build/404.html",
     "map_test": "react-scripts test src/__tests__/mapAndApiStateNames.test.js",
     "test": "react-scripts test --testPathIgnorePatterns=src/__tests__/mapAndApiStateNames.test.js",
     "eject": "react-scripts eject",
@@ -42,7 +42,8 @@
     "eslint:fix": "eslint --fix --max-warnings=0",
     "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|md)\"",
     "scss-lint": "sass-lint 'src/**/*.scss' -v -f table --max-warnings 0",
-    "scss-lint:fix": "sass-lint-auto-fix 'src/**/*.scss' -d -h -c '.sass-lint-auto-fix.yml'"
+    "scss-lint:fix": "sass-lint-auto-fix 'src/**/*.scss' -d -h -c '.sass-lint-auto-fix.yml'",
+    "deploy-gh-pages": "git push origin `git subtree split --prefix build master`:gh-pages --force"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,5 +1,5 @@
 {
-  "name": "covid19india",
+  "name": "covid19cg",
   "version": "1.0.0",
   "private": true,
   "homepage": "",
@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cp build/index.html build/404.html",
+    "build": "cross-env PUBLIC_URL=/covid19 react-scripts build && cp build/index.html build/404.html",
     "map_test": "react-scripts test src/__tests__/mapAndApiStateNames.test.js",
     "test": "react-scripts test --testPathIgnorePatterns=src/__tests__/mapAndApiStateNames.test.js",
     "eject": "react-scripts eject",

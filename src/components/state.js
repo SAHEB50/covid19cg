@@ -24,9 +24,7 @@ import {useMeasure, useEffectOnce} from 'react-use';
 function State(props) {
   const mapRef = useRef();
   const tsRef = useRef();
-
-  const {stateCode} = useParams();
-
+  
   const [fetched, setFetched] = useState(false);
   const [timeseries, setTimeseries] = useState({});
   const [graphOption, setGraphOption] = useState(1);
@@ -36,12 +34,12 @@ function State(props) {
   const [testData, setTestData] = useState({});
   const [sources, setSources] = useState({});
   const [districtData, setDistrictData] = useState({});
-  const [stateName] = useState(STATE_CODES[stateCode]);
+  const [stateName] = useState(STATE_CODES['CT']);
   const [mapOption, setMapOption] = useState('confirmed');
   const [mapSwitcher, {width}] = useMeasure();
 
   useEffectOnce(() => {
-    getState(stateCode);
+    getState('CT');
   });
 
   const getState = async (code) => {
@@ -104,10 +102,10 @@ function State(props) {
     <React.Fragment>
       <div className="State">
         <div className="state-left">
-          <div className="breadcrumb fadeInUp">
+          {/* <div className="breadcrumb fadeInUp">
             <Link to="/">Home</Link>/
-            <Link to={`${stateCode}`}>{stateName}</Link>
-          </div>
+            <Link to={`${}`}>{stateName}</Link>
+          </div> */}
 
           <div className="header">
             <div
@@ -396,7 +394,7 @@ function State(props) {
         <div className="state-left">
           <div className="Clusters fadeInUp" style={{animationDelay: '0.8s'}}>
             <h1>Network of Transmission</h1>
-            <Clusters stateCode={stateCode} />
+            <Clusters stateCode={'CT'} />
           </div>
         </div>
 

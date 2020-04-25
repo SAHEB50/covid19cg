@@ -18,45 +18,47 @@ import {
 } from 'react-router-dom';
 import {useLocalStorage} from 'react-use';
 
+const PUBLIC_URL = process.env.PUBLIC_URL;
+
 function App() {
   const pages = [
     {
-      pageLink: '/',
-      view: Home,
+      pageLink: `${PUBLIC_URL}/`,
+      view: State,
       displayName: 'Home',
       animationDelayForNavbar: 0.2,
       showInNavbar: true,
     },
     {
-      pageLink: '/demographics',
+      pageLink: `${PUBLIC_URL}/demographics`,
       view: PatientDB,
       displayName: 'Demographics',
       animationDelayForNavbar: 0.3,
       showInNavbar: true,
     },
     {
-      pageLink: '/deepdive',
+      pageLink: `${PUBLIC_URL}/deepdive`,
       view: DeepDive,
       displayName: 'Deep Dive',
       animationDelayForNavbar: 0.4,
       showInNavbar: true,
     },
     {
-      pageLink: '/essentials',
+      pageLink: `${PUBLIC_URL}/essentials`,
       view: Resources,
       displayName: 'Essentials',
       animationDelayForNavbar: 0.5,
       showInNavbar: true,
     },
     {
-      pageLink: '/faq',
+      pageLink: `${PUBLIC_URL}/faq`,
       view: FAQ,
       displayName: 'FAQ',
       animationDelayForNavbar: 0.6,
       showInNavbar: true,
     },
     {
-      pageLink: '/state/:stateCode',
+      pageLink: `${PUBLIC_URL}/state/:stateCode`,
       view: State,
       displayName: 'State',
       animationDelayForNavbar: 0.7,
@@ -97,7 +99,7 @@ function App() {
                     />
                   );
                 })}
-                <Redirect to="/" />
+                <Redirect to={PUBLIC_URL || '/'} />
               </Switch>
             </div>
           )}

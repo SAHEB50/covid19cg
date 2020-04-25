@@ -4,9 +4,8 @@ export const MAP_TYPES = {
 };
 
 const PUBLIC_URL = process.env.PUBLIC_URL;
-console.log({PUBLIC_URL});
 
-export const MAPS_DIR = `/maps`;
+export const MAPS_DIR = `${PUBLIC_URL}/maps`;
 
 export const MAP_META = {
   India: {
@@ -54,7 +53,7 @@ export const MAP_META = {
   },
   Chhattisgarh: {
     name: 'Chhattisgarh',
-    geoDataFile: `/covid19cg${MAPS_DIR}/chhattisgarh.json`,
+    geoDataFile: `${MAPS_DIR}/chhattisgarh.json`,
     mapType: MAP_TYPES.STATE,
     graphObjectName: 'chhattisgarh_district',
   },

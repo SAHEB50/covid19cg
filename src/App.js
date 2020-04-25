@@ -64,7 +64,7 @@ function App() {
     },
   ];
 
-  const [darkMode, setDarkMode] = useLocalStorage('darkMode', false);
+  const [darkMode, setDarkMode] = useLocalStorage('darkMode', true);
 
   React.useEffect(() => {
     if (darkMode) {

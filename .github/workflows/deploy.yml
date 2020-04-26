@@ -17,3 +17,10 @@ jobs:
           npm install
           npm run build:prod
           git push origin `git subtree split --prefix build master`:gh-pages --force
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+            GITHUB_TOKEN: ${{ secrets.github_token }}
+            BRANCH: gh-pages # The branch the action should deploy to.
+            FOLDER: build # The folder the action should deploy.
+            CLEAN: false

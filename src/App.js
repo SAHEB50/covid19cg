@@ -1,8 +1,9 @@
+import ReactGA from 'react-ga';
+
 import './App.scss';
 
 import DeepDive from './components/deepdive';
 import FAQ from './components/faq';
-import Home from './components/home';
 import Navbar from './components/navbar';
 import PatientDB from './components/patientdb';
 import Resources from './components/resources';
@@ -16,9 +17,15 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-import {useLocalStorage} from 'react-use';
+import { useLocalStorage } from 'react-use';
 
 const PUBLIC_URL = process.env.PUBLIC_URL;
+
+function initializeTracking() {
+  console.log(window.location.pathname + window.location.search);
+  
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
 
 function App() {
   const pages = [
@@ -74,14 +81,15 @@ function App() {
     } else {
       document.querySelector('body').classList.remove('dark-mode');
     }
+    ReactGA.initialize('UA-164643845-1');
   }, [darkMode]);
-
+  initializeTracking();
   return (
     <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
       <Router>
         <ScrollToTop />
         <Route
-          render={({location}) => (
+          render={({ location }) => (
             <div className="Almighty-Router">
               <Navbar
                 pages={pages}

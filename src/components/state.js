@@ -6,7 +6,7 @@ import MapExplorer from './mapexplorer';
 import Minigraph from './minigraph';
 import TimeSeries from './timeseries';
 
-import {MAP_META, STATE_CODES} from '../constants';
+import { MAP_META, STATE_CODES } from '../constants';
 import {
   formatDateAbsolute,
   formatNumber,
@@ -15,16 +15,16 @@ import {
 
 import anime from 'animejs';
 import axios from 'axios';
-import {format, parse} from 'date-fns';
-import React, {useRef, useState} from 'react';
+import { format, parse } from 'date-fns';
+import React, { useRef, useState } from 'react';
 import * as Icon from 'react-feather';
-import {Link, useParams} from 'react-router-dom';
-import {useMeasure, useEffectOnce} from 'react-use';
+import { Link, useParams } from 'react-router-dom';
+import { useMeasure, useEffectOnce } from 'react-use';
 
 function State(props) {
   const mapRef = useRef();
   const tsRef = useRef();
-  
+
   const [fetched, setFetched] = useState(false);
   const [timeseries, setTimeseries] = useState({});
   const [graphOption, setGraphOption] = useState(1);
@@ -36,7 +36,7 @@ function State(props) {
   const [districtData, setDistrictData] = useState({});
   const [stateName] = useState(STATE_CODES['CT']);
   const [mapOption, setMapOption] = useState('confirmed');
-  const [mapSwitcher, {width}] = useMeasure();
+  const [mapSwitcher, { width }] = useMeasure();
 
   useEffectOnce(() => {
     getState('CT');
@@ -45,11 +45,11 @@ function State(props) {
   const getState = async (code) => {
     try {
       const [
-        {data: dataResponse},
-        {data: stateDistrictWiseResponse},
-        {data: statesDailyResponse},
-        {data: stateTestResponse},
-        {data: sourcesResponse},
+        { data: dataResponse },
+        { data: stateDistrictWiseResponse },
+        { data: statesDailyResponse },
+        { data: stateTestResponse },
+        { data: sourcesResponse },
       ] = await Promise.all([
         axios.get('https://api.covid19india.org/data.json'),
         axios.get('https://api.covid19india.org/state_district_wise.json'),
@@ -82,12 +82,12 @@ function State(props) {
           mapOption === 'confirmed'
             ? `${width * 0}px`
             : mapOption === 'active'
-            ? `${width * 0.25}px`
-            : mapOption === 'recovered'
-            ? `${width * 0.5}px`
-            : mapOption === 'deceased'
-            ? `${width * 0.75}px`
-            : '0px',
+              ? `${width * 0.25}px`
+              : mapOption === 'recovered'
+                ? `${width * 0.5}px`
+                : mapOption === 'deceased'
+                  ? `${width * 0.75}px`
+                  : '0px',
         easing: 'spring(1, 80, 90, 10)',
         opacity: 1,
       });
@@ -110,7 +110,7 @@ function State(props) {
           <div className="header">
             <div
               className="header-left fadeInUp"
-              style={{animationDelay: '0.3s'}}
+              style={{ animationDelay: '0.3s' }}
             >
               <h1>{stateName}</h1>
               <h5>
@@ -123,16 +123,16 @@ function State(props) {
 
             <div
               className="header-right fadeInUp"
-              style={{animationDelay: '0.5s'}}
+              style={{ animationDelay: '0.5s' }}
             >
               <h5>Tested</h5>
               <h2>{formatNumber(testObjLast?.totaltested)}</h2>
               <h5 className="timestamp">
                 {!isNaN(parse(testObjLast?.updatedon, 'dd/MM/yyyy', new Date()))
                   ? `As of ${format(
-                      parse(testObjLast?.updatedon, 'dd/MM/yyyy', new Date()),
-                      'dd MMM'
-                    )}`
+                    parse(testObjLast?.updatedon, 'dd/MM/yyyy', new Date()),
+                    'dd MMM'
+                  )}`
                   : ''}
               </h5>
               <h5>
@@ -237,17 +237,17 @@ function State(props) {
                   Data collected from sources{' '}
                   {sources.length > 0
                     ? Object.keys(sources[0]).map((key, index) => {
-                        if (key.match('source') && sources[0][key] !== '') {
-                          const num = key.match(/\d+/);
-                          return (
-                            <React.Fragment key={index}>
-                              {num > 1 ? ',' : ''}
-                              <a href={sources[0][key]}>{num}</a>
-                            </React.Fragment>
-                          );
-                        }
-                        return null;
-                      })
+                      if (key.match('source') && sources[0][key] !== '') {
+                        const num = key.match(/\d+/);
+                        return (
+                          <React.Fragment key={index}>
+                            {num > 1 ? ',' : ''}
+                            <a href={sources[0][key]}>{num}</a>
+                          </React.Fragment>
+                        );
+                      }
+                      return null;
+                    })
                     : ''}
                 </div>
               </div>
@@ -261,44 +261,44 @@ function State(props) {
               <div className="district-bar">
                 <div
                   className="district-bar-left fadeInUp"
-                  style={{animationDelay: '0.6s'}}
+                  style={{ animationDelay: '0.6s' }}
                 >
                   <h2>Top districts</h2>
                   <div className="districts">
                     {districtData[stateName]
                       ? Object.keys(districtData[stateName].districtData)
-                          .filter((d) => d !== 'Unknown')
-                          .sort(
-                            (a, b) =>
-                              districtData[stateName].districtData[b]
-                                .confirmed -
-                              districtData[stateName].districtData[a].confirmed
-                          )
-                          .slice(0, 6)
-                          .map((district, index) => {
-                            return (
-                              <div key={index} className="district">
-                                <h2>
+                        .filter((d) => d !== 'Unknown')
+                        .sort(
+                          (a, b) =>
+                            districtData[stateName].districtData[b]
+                              .confirmed -
+                            districtData[stateName].districtData[a].confirmed
+                        )
+                        .slice(0, 6)
+                        .map((district, index) => {
+                          return (
+                            <div key={index} className="district">
+                              <h2>
+                                {
+                                  districtData[stateName].districtData[
+                                    district
+                                  ].confirmed
+                                }
+                              </h2>
+                              <h5>{district}</h5>
+                              <div className="delta">
+                                <Icon.ArrowUp />
+                                <h6>
                                   {
                                     districtData[stateName].districtData[
                                       district
-                                    ].confirmed
+                                    ].delta.confirmed
                                   }
-                                </h2>
-                                <h5>{district}</h5>
-                                <div className="delta">
-                                  <Icon.ArrowUp />
-                                  <h6>
-                                    {
-                                      districtData[stateName].districtData[
-                                        district
-                                      ].delta.confirmed
-                                    }
-                                  </h6>
-                                </div>
+                                </h6>
                               </div>
-                            );
-                          })
+                            </div>
+                          );
+                        })
                       : ''}
                   </div>
                 </div>
@@ -316,7 +316,7 @@ function State(props) {
                 <Link to="/essentials">
                   <div
                     className="to-essentials fadeInUp"
-                    style={{animationDelay: '0.9s'}}
+                    style={{ animationDelay: '0.9s' }}
                   >
                     <h2>Go to essentials</h2>
                     <Icon.ArrowRightCircle />
@@ -326,7 +326,7 @@ function State(props) {
 
               <div
                 className="timeseries-header fadeInUp"
-                style={{animationDelay: '2.5s'}}
+                style={{ animationDelay: '2.5s' }}
                 ref={tsRef}
               >
                 <div className="tabs">
@@ -365,7 +365,7 @@ function State(props) {
                   <div
                     className={`timeseries-logmode ${
                       graphOption !== 1 ? 'disabled' : ''
-                    }`}
+                      }`}
                   >
                     <label htmlFor="timeseries-logmode">Logarithmic</label>
                     <input

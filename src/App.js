@@ -55,7 +55,7 @@ function App() {
       view: FAQ,
       displayName: 'FAQ',
       animationDelayForNavbar: 0.6,
-      showInNavbar: true,
+      showInNavbar: false,
     },
     {
       pageLink: `${PUBLIC_URL}/state/:stateCode`,

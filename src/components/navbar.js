@@ -85,11 +85,11 @@ function Navbar({pages, darkMode, setDarkMode}) {
                 <Icon.Package {...activeNavIcon('/essentials')} />
               </Link>
             </span>
-            <span>
+            {/* <span>
               <Link to="/faq">
                 <Icon.HelpCircle {...activeNavIcon('/faq')} />
               </Link>
-            </span>
+            </span> */}
           </React.Fragment>
         )}
       </div>

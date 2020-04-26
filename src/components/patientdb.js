@@ -3,12 +3,12 @@ import Footer from './footer';
 import Patients from './patients';
 
 import axios from 'axios';
-import {format, subDays} from 'date-fns';
-import React, {useState, useEffect} from 'react';
+import { format, subDays } from 'date-fns';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-date-picker';
 import * as Icon from 'react-feather';
-import {useLocation} from 'react-router-dom';
-import {useEffectOnce, useLocalStorage} from 'react-use';
+import { useLocation } from 'react-router-dom';
+import { useEffectOnce, useLocalStorage } from 'react-use';
 
 function filterByObject(obj, filters) {
   const keys = Object.keys(filters);
@@ -24,7 +24,7 @@ function PatientDB(props) {
   const [fetched, setFetched] = useState(false);
   const [patients, setPatients] = useState([]);
   const [filteredPatients, setFilteredPatients] = useState([]);
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
   const [colorMode, setColorMode] = useState('genders');
   const [scaleMode, setScaleMode] = useState(false);
   const [filterDate, setFilterDate] = useState(subDays(new Date(), 1));
@@ -65,7 +65,7 @@ function PatientDB(props) {
   const handleFilters = (label, value) => {
     setFilters((f) => {
       // Create new object (deep copy)
-      const newFilters = {...f};
+      const newFilters = { ...f };
       newFilters[label] = value;
       if (label === 'detectedstate') {
         const district = document.getElementById('district');
@@ -109,13 +109,22 @@ function PatientDB(props) {
     return Array.from(setValues).sort();
   }
 
+  const selectedState = 'Chhattisgarh';
+
+  // filters.detectedstate = selectedState;
+  // "Chhattisgarh"
+  let stateList = getSortedValues(patients, 'detectedstate');
+  stateList = stateList.filter((state) => state === 'Chhattisgarh');
+  // console.log({ stateList, detect: filters.detectedstate });
+  // handleFilters('detecteddistrict', selectedState);
+
   return (
     <div className="PatientsDB">
-      <div className="filters fadeInUp" style={{animationDelay: '0.2s'}}>
+      <div className="filters fadeInUp" style={{ animationDelay: '0.2s' }}>
         <div className="filters-left">
           <div className="select">
             <select
-              style={{animationDelay: '0.3s'}}
+              style={{ animationDelay: '0.3s' }}
               id="state"
               onChange={(event) => {
                 handleFilters('detectedstate', event.target.value);
@@ -125,21 +134,17 @@ function PatientDB(props) {
               <option value="" disabled>
                 Select State
               </option>
-              {getSortedValues(patients, 'detectedstate').map(
-                (state, index) => {
-                  return (
-                    <option key={index} value={state}>
-                      {state === '' ? 'All' : state}
-                    </option>
-                  );
-                }
-              )}
+              {stateList.map((state, index) => (
+                <option key={index} value={state}>
+                  {state === '' ? 'All' : state}
+                </option>
+              ))}
             </select>
           </div>
 
           <div className="select">
             <select
-              style={{animationDelay: '0.4s', display: 'none'}}
+              style={{ animationDelay: '0.4s', display: 'none' }}
               id="district"
               onChange={(event) => {
                 handleFilters('detecteddistrict', event.target.value);
@@ -166,7 +171,7 @@ function PatientDB(props) {
 
           <div className="select">
             <select
-              style={{animationDelay: '0.4s', display: 'none'}}
+              style={{ animationDelay: '0.4s', display: 'none' }}
               id="city"
               onChange={(event) => {
                 handleFilters('detectedcity', event.target.value);
@@ -194,7 +199,7 @@ function PatientDB(props) {
 
           <div className="select">
             <select
-              style={{animationDelay: '0.4s', display: 'none'}}
+              style={{ animationDelay: '0.4s', display: 'none' }}
               id="city"
               onChange={(event) => {
                 handleFilters('detectedcity', event.target.value);
@@ -309,7 +314,7 @@ function PatientDB(props) {
 
           <div className={`select ${colorMode}`}>
             <select
-              style={{animationDelay: '0.4s'}}
+              style={{ animationDelay: '0.4s' }}
               onChange={(event) => {
                 setColorMode(event.target.value);
               }}
@@ -327,7 +332,7 @@ function PatientDB(props) {
         </div>
       </div>
 
-      <div className="header fadeInUp" style={{animationDelay: '0.3s'}}>
+      <div className="header fadeInUp" style={{ animationDelay: '0.3s' }}>
         <div>
           <h1>Demographics</h1>
 
@@ -351,7 +356,7 @@ function PatientDB(props) {
 
       <div
         className="reminder fadeInUp"
-        style={{animationDelay: '1s', display: showReminder ? '' : 'none'}}
+        style={{ animationDelay: '1s', display: showReminder ? '' : 'none' }}
       >
         <Icon.XCircle
           onClick={() => {
@@ -391,12 +396,12 @@ function PatientDB(props) {
               </h5>
             </div>
           ) : (
-            <Patients
-              patients={filteredPatients}
-              colorMode={colorMode}
-              expand={scaleMode}
-            />
-          )}
+                <Patients
+                  patients={filteredPatients}
+                  colorMode={colorMode}
+                  expand={scaleMode}
+                />
+              )}
         </div>
       )}
 

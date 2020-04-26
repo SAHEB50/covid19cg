@@ -1,4 +1,4 @@
-import Clusters from './clusters';
+// import Clusters from './clusters';
 import DeltaBarGraph from './deltabargraph';
 import Footer from './footer';
 import Level from './level';
@@ -18,7 +18,7 @@ import axios from 'axios';
 import { format, parse } from 'date-fns';
 import React, { useRef, useState } from 'react';
 import * as Icon from 'react-feather';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useMeasure, useEffectOnce } from 'react-use';
 
 function State(props) {

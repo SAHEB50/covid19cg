@@ -109,7 +109,7 @@ function PatientDB(props) {
     return Array.from(setValues).sort();
   }
 
-  const selectedState = 'Chhattisgarh';
+  // const selectedState = 'Chhattisgarh';
 
   // filters.detectedstate = selectedState;
   // "Chhattisgarh"

@@ -35,6 +35,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "cross-env PUBLIC_URL=/covid19cg react-scripts build && cp build/index.html build/404.html",
+    "build:prod": "cross-env PUBLIC_URL=/ react-scripts build && cp build/index.html build/404.html",
     "map_test": "react-scripts test src/__tests__/mapAndApiStateNames.test.js",
     "test": "react-scripts test --testPathIgnorePatterns=src/__tests__/mapAndApiStateNames.test.js",
     "eject": "react-scripts eject",

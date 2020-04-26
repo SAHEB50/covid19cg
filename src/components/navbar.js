@@ -70,11 +70,11 @@ function Navbar({pages, darkMode, setDarkMode}) {
                 <Icon.Home {...activeNavIcon('/')} />
               </Link>
             </span>
-            <span>
+            {/* <span>
               <Link to="/demographics">
                 <Icon.Users {...activeNavIcon('/demographics')} />
               </Link>
-            </span>
+            </span> */}
             <span>
               <Link to="/deepdive">
                 <Icon.BarChart2 {...activeNavIcon('/deepdive')} />

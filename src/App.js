@@ -34,7 +34,7 @@ function App() {
       view: PatientDB,
       displayName: 'Demographics',
       animationDelayForNavbar: 0.3,
-      showInNavbar: true,
+      showInNavbar: false,
     },
     {
       pageLink: `${PUBLIC_URL}/deepdive`,
